@@ -627,11 +627,11 @@ Wire Wire Line
 Text Notes 8050 3350 0    60   ~ 0
 Original Fluke 8050a LCD Hack\nhttp://vondervotteimittiss.com/belfry/?p=180
 Text Notes 8050 6650 0    60   ~ 0
-Fluke 8050a LCD with New INT handler\nhttps://github.com/yhfudev/fluke8050a-screen.git
+Fluke 8050a LCD with New INT handler\nhttps://github.com/yhfudev/smartshow-fluke8050a.git
 Text Notes 5050 3500 0    60   ~ 0
 ESP8266 UART Bridge (UART Swap mode)\nhttps://github.com/jeelabs/esp-link.git
 Text Notes 600  7900 0    60   ~ 0
-ATMega328p Headless\nhttps://github.com/yhfudev/fluke8050a-screen.git
+ATMega328p Headless\nhttps://github.com/yhfudev/smartshow-fluke8050a.git
 Text GLabel 3350 2800 2    60   Input ~ 0
 ~OL
 Text GLabel 1050 2900 0    60   Input ~ 0
