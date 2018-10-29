@@ -1,6 +1,6 @@
 /**
- * @file    fluke8050a-display.ino
- * @brief   Fluke 8050a display
+ * @file    smartshow-fluke8050a.ino
+ * @brief   SmartShow for Fluke 8050a display
  * @author  Yunhui Fu (yhfudev@gmail.com)
  * @version 1.0
  * @date    2018-10-11

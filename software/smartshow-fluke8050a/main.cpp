@@ -1,5 +1,5 @@
 /*
- * SerialIP Client/Server.
+ * SmartShow SerialIP Client/Server.
  *
  * SerialIP is a TCP/IP stack that can be used over a serial port (a bit
  * like a dial-up Internet connection, but without the modem.)  It works with
