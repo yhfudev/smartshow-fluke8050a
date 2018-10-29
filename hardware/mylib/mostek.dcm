@@ -1,0 +1,8 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP MK3870
+D Mostek 3870 microcontroller
+K Z80
+$ENDCMP
+#
+#End Doc Library
