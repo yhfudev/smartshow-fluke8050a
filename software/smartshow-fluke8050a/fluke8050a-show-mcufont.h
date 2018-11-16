@@ -24,6 +24,15 @@ extern struct mf_rlefont_s mf_rlefont_fixed_10x20;
 extern struct mf_bwfont_s mf_bwfont_fixed_5x8;
 extern struct mf_rlefont_s mf_rlefont_DejaVuSans32;
 
+#ifdef MF_FONT_BIG
+#undef MF_FONT_BIG
+#endif
+#ifdef MF_FONT_MID
+#undef MF_FONT_MID
+#endif
+#ifdef MF_FONT_NOR
+#undef MF_FONT_NOR
+#endif
 #define MF_FONT_BIG ((struct mf_font_s *)(&mf_rlefont_DejaVuSans32))
 #define MF_FONT_MID ((struct mf_font_s *)(&mf_rlefont_fixed_10x20))
 #define MF_FONT_NOR MF_FONT_MID
@@ -130,7 +139,7 @@ bool count_bound(const char *line, uint16_t count, void *userdata)
     return true;
 }
 
-void tft_mf_gettextbounds(struct mf_font_s * font, char *text, int x, int y, int16_t *bx, int16_t *by, uint16_t *bw, uint16_t *bh)
+void tft_mf_gettextbounds(struct mf_font_s * font, const char *text, int x, int y, int16_t *bx, int16_t *by, uint16_t *bw, uint16_t *bh)
 {
   struct userdata_adagfx_s state;
   state.x = x;
@@ -147,7 +156,7 @@ void tft_mf_gettextbounds(struct mf_font_s * font, char *text, int x, int y, int
   *bw=state.x - x + 1; *bh = state.y - y + 1;
 }
 
-void tft_mf_drawtext(struct mf_font_s * font, int x, int y, char *text, uint16_t color)
+void tft_mf_drawtext(struct mf_font_s * font, int x, int y, const char *text, uint16_t color)
 {
   struct userdata_adagfx_s state;
   state.x = x;
@@ -192,6 +201,9 @@ void tft_mf_drawtext(struct mf_font_s * font, int x, int y, char *text, uint16_t
 #undef Y_REL
 #undef X_LOBATT
 #undef Y_LOBATT
+#undef X_MODE
+#undef Y_MODE
+#undef W_SPACE
 #endif
 
 // display x,y coords
@@ -235,14 +247,14 @@ void displayMain() {
         d = f->digits_z;
         break;
     }
-    tft_mf_gettextbounds(MF_FONT_BIG, d, x, y, &bx, &by, &bw, &bh);
+    tft_mf_gettextbounds(MF_FONT_BIG, (char *)d, x, y, &bx, &by, &bw, &bh);
     //TD("displaymain text '%s' bound: (%d,%d) w,h(%d,%d)", d, bx,by, bw,bh);
 #if USE_U8G
 #else
     tft_fillRect(bx, by, bw, bh, BG_COLOR);
 #endif
     //TD("displayMain: draw big text @(%d,%d): %s", x,y, (char *)d);
-    tft_mf_drawtext(MF_FONT_BIG, x, y, d, FG_COLOR);
+    tft_mf_drawtext(MF_FONT_BIG, x, y, (char *)d, FG_COLOR);
 
     bh ++;
     if (f->flags & FLUKE8050A_MASK_HIGHVOL) {
@@ -278,7 +290,7 @@ void displayRel() {
     }
 #else
     snprintf_P(buf, sizeof(buf), PSTR("REL %s %s/%s")
-      , (dispDigits?f->digits_rel:"")
+      , (dispDigits?(char *)(f->digits_rel):"")
       , (dispDigits?fluke8050a_unit2cstr(fluke_raw.rUnit):"")
       , (dispDigits?fluke8050a_mode2cstr(fluke_raw.rMode):"")
       );
@@ -316,7 +328,7 @@ void displayZ() {
     x = bx + bw;
   }
   else if ( fluke_raw.baseUnit == BASEUNIT_dB ) {
-    char *d = f->digits_z;
+    char *d = (char *)f->digits_z;
     x = X_Z;
 #if USE_U8G
 #else

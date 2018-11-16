@@ -16,8 +16,15 @@ extern "C" {
 
 // Display Settings
 #define I2C_DISPLAY_ADDRESS 0x3c
-#define I2C_SDA A4 //D3;
-#define I2C_SCL A5 //D4;
+#if defined (__AVR_ATmega32U4__)
+#define I2C_SDA D2
+#define I2C_SCL D3
+#elif defined (__AVR_ATmega328P__)
+#define I2C_SDA A4
+#define I2C_SCL A5
+#else
+#error "Please define the I2C OLED pins"
+#endif
 
 #ifdef __cplusplus
 }
@@ -88,7 +95,7 @@ extern Adafruit_SSD1306 tft;
 
 #endif
 
-#endif __cplusplus
+#endif // __cplusplus
 
 
 #endif /* _CONFIG_OLED_H */

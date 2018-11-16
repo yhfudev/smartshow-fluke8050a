@@ -65,7 +65,7 @@ extern "C" {
 extern Adafruit_ST7735 tft;
 #endif
 
-#endif __cplusplus
+#endif // __cplusplus
 
 #endif /* _CONFIG_TFT_H */
 

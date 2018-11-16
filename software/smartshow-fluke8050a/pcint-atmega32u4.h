@@ -9,6 +9,7 @@
 
 #ifndef _PCINT_ATMEGA32U4_H
 #define _PCINT_ATMEGA32U4_H 1
+#if defined (__AVR_ATmega32U4__)
 
 // turn on the interrupt vector
 //#define USE_PCINT 1
@@ -35,10 +36,11 @@ void cb_pcint0_pb0_pb7(uint8_t mask, uint8_t value);
 ISR (PCINT0_vect) // handle pin change interrupt for A0 to A5 here
 {
   uint8_t value = PINB & 0xFF;
-  cb_pcint1_a0_a5(g_pcint0_value ^ value, value);
-  g_pcint1_value = value;
+  cb_pcint0_pb0_pb7(g_pcint0_value ^ value, value);
+  g_pcint0_value = value;
 }
 #endif
 
+#endif // __AVR_ATmega32U4__
 #endif // _PCINT_ATMEGA32U4_H
 

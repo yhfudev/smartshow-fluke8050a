@@ -9,6 +9,7 @@
 
 #ifndef _PCINT_ATMEGA328P_H
 #define _PCINT_ATMEGA328P_H 1
+#if defined (__AVR_ATmega328P__)
 
 // turn on the interrupt vector
 //#define USE_PCINT0 1
@@ -60,5 +61,6 @@ ISR (PCINT2_vect) // handle pin change interrupt for D0 to D7 here
 }  
 #endif
 
+#endif // __AVR_ATmega328P__
 #endif // _PCINT_ATMEGA328P_H
 

@@ -130,7 +130,7 @@ void splash();
 #ifdef __cplusplus
 // C++ classes
 
-#endif __cplusplus
+#endif // __cplusplus
 
 
 #endif /* _FLUKE8050A_MCU_H */

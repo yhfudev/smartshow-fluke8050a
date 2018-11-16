@@ -55,7 +55,7 @@ SoftwareSerial uart_remote(D7, D8); // RX, TX
 #endif
 
 
-#endif __cplusplus
+#endif // __cplusplus
 
 
 #endif /* _CONFIG_UART_H */

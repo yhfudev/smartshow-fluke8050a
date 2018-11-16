@@ -123,9 +123,9 @@ typedef struct _fluke8050a_reads_t {
     uint8_t unit;  // the type of measure unit, 200, 2k etc.
 
 #define SZ_BUF_READS (1+4+1+1+1 + 1) // sign + 4 1/2 + dot + \0 + extra 1 bytes)
-    char digits[SZ_BUF_READS];
-    char digits_z[SZ_BUF_READS];  // dB
-    char digits_rel[SZ_BUF_READS]; // relative
+    uint8_t digits[SZ_BUF_READS];
+    uint8_t digits_z[SZ_BUF_READS];  // dB
+    uint8_t digits_rel[SZ_BUF_READS]; // relative
 
     uint8_t mode; // debug: mode
 #if DEBUG
@@ -155,7 +155,7 @@ void loop_once_display(void);
 #ifdef __cplusplus
 // C++ classes
 
-#endif __cplusplus
+#endif // __cplusplus
 
 
 #endif /* _FLUKE8050A_MCU_H */

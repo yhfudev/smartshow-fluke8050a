@@ -282,7 +282,7 @@ struct fluke_raw_t fluke_raw;
 PIN ASSIGNMENTS
 */
 
-#if defined (__AVR_ATmega32__)
+#if defined (__AVR_ATmega32U4__)
 // ATMega32U4
 
 // TFT display communication pins
@@ -314,10 +314,10 @@ PIN ASSIGNMENTS
 // 8050A range and function switches
 // rng (PORTB)
 #define BIT_8050_RNGc   PIND4
-#define BIT_8050_RNGb   PIND5
+#define BIT_8050_RNGb   PIND7
 #define BIT_8050_RNGa   PIND6
-#define BIT_8050_BT     PIND7
-// exchange the PIDN7 and PIND5 in the follow code: ((PIND & 0x80) >> 2) | ((PIND & 0x20) << 2) | (PIND & 0x5F),
+#define BIT_8050_BT     PIND5
+// exchange the PIDN7 and PIND5 in the follow code: ((rng >> 2) & 0x02) | ((rng << 2) & 0x08) | (rng & 0x05),
 // since PIND5 is not available in the breakboard and it's connected to LED
 
 // func (PORTD)
@@ -330,7 +330,7 @@ PIN ASSIGNMENTS
 uint8_t get_rng(void)
 {
   uint8_t rng = (PIND >> 4);
-  rng = ((rng & 0x80) >> 2) | ((rng & 0x20) << 2) | (rng & 0x5F);
+  rng = ((rng >> 2) & 0x02) | ((rng << 2) & 0x08) | (rng & 0x05);
   clear_bit(rng, BIT_BT); // BT
   return rng;
 }
@@ -342,7 +342,7 @@ uint8_t get_lowbat(void) {
 }
 
 uint8_t get_func(void) {
-  return (PIND | (PINC & bit(PC6)) >> 4 | (PINB & bit(PB3)) );
+  return ((PIND & 0x03) | (PINC & bit(PC6)) >> 4 | (PINB & bit(PB3)) );
 }
 
 // TODO: DP is not used, moved to PD5
@@ -438,12 +438,19 @@ void cb_pcint0_pb0_pb7(uint8_t mask, uint8_t value)
   }
 }
 
+#if 0
 // ST4
 ISR(INT6_vect) {
   // read PE6
   isr_st4(PINE & bit(PE6));
 }
-
+#else
+// ST4 at PE6/INT6
+void cb_interrupt_0() {
+    // read PE6
+    isr_st4(PINE & bit(PE6));
+}
+#endif
 
 void setup_intvec_st(void)
 {
@@ -453,10 +460,15 @@ void setup_intvec_st(void)
   for (int i = 8; i <= 11; i ++) {
     pciSetup(i);
   }
+
+  // INTx
+  pinMode(7, INPUT_PULLUP);
+  attachInterrupt(digitalPinToInterrupt(7), cb_interrupt_0, CHANGE);
 }
 
 void setup_pins(void) {
 
+#if 0
   // disable ADC (to reduce power)
   ADCSRA = 0;
 
@@ -471,7 +483,7 @@ void setup_pins(void) {
 
   // frng
   DDRB &= B00001111; // set PB4-7 as inputs
-  DDRD &= B00001111; // set PD4-7 as inputs
+  DDRD &= B00001000; // set PD0-3,4-7 as inputs
 //   set_bit(PORTD,PORTD7); // pull-up on bt
 
   // strobes
@@ -483,10 +495,11 @@ void setup_pins(void) {
 
   // enable interrupts
   EIMSK = B01001111; // enable INT.0-3,6
+#endif
 }
 
 
-#else // pin assignments
+#elif defined (__AVR_ATmega328P__)
 // ATMega328p
 
 // TFT display communication pins
@@ -702,6 +715,9 @@ void setup_pins(void) {
     digitalWrite(pins_set[i], HIGH); //use the internal pullup resistor
   }
 }
+
+#else
+#error "Please define AVR Micro (cpuname.h)"
 
 #endif // pin assignments
 
@@ -1066,7 +1082,7 @@ void setup_mcu(void)
   fluke_raw_init(&fluke_raw);
 
   // scancodes
-  memset(scanCodes, 0, sizeof(scanCodes));
+  memset((void *)scanCodes, 0, sizeof(scanCodes));
   memset(&g_fluke8050a_data, 0, sizeof(g_fluke8050a_data));
   setup_pins();
   setup_intvec_st();
