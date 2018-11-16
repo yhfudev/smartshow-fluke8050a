@@ -84,7 +84,7 @@ $Comp
 L R R?
 U 1 1 5BD38230
 P 4650 2000
-F 0 "R?" V 4730 2000 50  0000 C CNN
+F 0 "R?" V 4700 2150 50  0000 C CNN
 F 1 "22k" V 4650 2000 50  0000 C CNN
 F 2 "" V 4580 2000 50  0001 C CNN
 F 3 "" H 4650 2000 50  0001 C CNN
@@ -117,7 +117,7 @@ $Comp
 L R R?
 U 1 1 5BD38721
 P 4650 1900
-F 0 "R?" V 4730 1900 50  0000 C CNN
+F 0 "R?" V 4700 2050 50  0000 C CNN
 F 1 "22k" V 4650 1900 50  0000 C CNN
 F 2 "" V 4580 1900 50  0001 C CNN
 F 3 "" H 4650 1900 50  0001 C CNN
@@ -132,7 +132,7 @@ $Comp
 L R R?
 U 1 1 5BD3877E
 P 4650 1800
-F 0 "R?" V 4730 1800 50  0000 C CNN
+F 0 "R?" V 4700 1950 50  0000 C CNN
 F 1 "22k" V 4650 1800 50  0000 C CNN
 F 2 "" V 4580 1800 50  0001 C CNN
 F 3 "" H 4650 1800 50  0001 C CNN
@@ -227,8 +227,6 @@ F 3 "" H 9000 4800 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	8600 4500 8700 4500
-Wire Wire Line
 	9200 4400 9300 4400
 Wire Wire Line
 	8700 4300 8650 4300
@@ -243,9 +241,9 @@ Wire Wire Line
 	9000 4000 9000 4100
 Text GLabel 9300 4400 2    60   Output ~ 0
 ESP_TX_5V
-Text GLabel 8600 4500 0    60   Input ~ 0
+Text GLabel 8500 4500 0    60   Input ~ 0
 ESP_TX
-Text Notes 8200 4450 0    60   ~ 0
+Text Notes 8100 4400 0    60   ~ 0
 Max 3v3
 Text Notes 9350 4300 0    60   ~ 0
 Out < 5v
@@ -280,14 +278,12 @@ F 12 "Active" H 9200 6850 60  0001 L CNN "Status"
 	1    9000 5650
 	1    0    0    -1  
 $EndComp
-Text GLabel 8600 5750 0    60   Input ~ 0
+Text GLabel 8500 5750 0    60   Input ~ 0
 ESP_RX_5V
 Text GLabel 9300 5750 2    60   Output ~ 0
 ESP_RX
 Wire Wire Line
 	9300 5750 9200 5750
-Wire Wire Line
-	8700 5750 8600 5750
 $Comp
 L GND #PWR?
 U 1 1 5BD79426
@@ -321,4 +317,46 @@ F 3 "" H 9000 5250 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	9000 5250 9000 5350
+$Comp
+L R R?
+U 1 1 5BD9CCD5
+P 8750 4050
+F 0 "R?" V 8830 4050 50  0000 C CNN
+F 1 "10k" V 8750 4050 50  0000 C CNN
+F 2 "" V 8680 4050 50  0001 C CNN
+F 3 "" H 8750 4050 50  0001 C CNN
+	1    8750 4050
+	0    1    1    0   
+$EndComp
+$Comp
+L R R?
+U 1 1 5BD9CD4E
+P 8750 5300
+F 0 "R?" V 8830 5300 50  0000 C CNN
+F 1 "10k" V 8750 5300 50  0000 C CNN
+F 2 "" V 8680 5300 50  0001 C CNN
+F 3 "" H 8750 5300 50  0001 C CNN
+	1    8750 5300
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	8900 4050 9000 4050
+Connection ~ 9000 4050
+Wire Wire Line
+	8900 5300 9000 5300
+Connection ~ 9000 5300
+Wire Wire Line
+	8500 5750 8700 5750
+Wire Wire Line
+	8600 5300 8550 5300
+Wire Wire Line
+	8550 5300 8550 5750
+Connection ~ 8550 5750
+Wire Wire Line
+	8500 4500 8700 4500
+Wire Wire Line
+	8600 4050 8550 4050
+Wire Wire Line
+	8550 4050 8550 4500
+Connection ~ 8550 4500
 $EndSCHEMATC

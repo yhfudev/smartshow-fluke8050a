@@ -626,7 +626,7 @@ Wire Wire Line
 	9050 1100 9200 1100
 Text Notes 8050 3350 0    60   ~ 0
 Original Fluke 8050a LCD Hack\nhttp://vondervotteimittiss.com/belfry/?p=180
-Text Notes 8050 6650 0    60   ~ 0
+Text Notes 7850 6550 0    60   ~ 0
 Fluke 8050a LCD with New INT handler\nhttps://github.com/yhfudev/smartshow-fluke8050a.git
 Text Notes 5050 3500 0    60   ~ 0
 ESP8266 UART Bridge (UART Swap mode)\nhttps://github.com/jeelabs/esp-link.git
@@ -1004,9 +1004,9 @@ F 3 "" H 5950 7300 50  0001 C CNN
 $EndComp
 Text GLabel 5650 6950 0    60   Input ~ 0
 GND
-Text GLabel 5650 6750 0    60   Input ~ 0
-ESP_TX
 Text GLabel 5650 6850 0    60   Input ~ 0
+ESP_TX
+Text GLabel 5650 6750 0    60   Input ~ 0
 ESP_RX
 Text GLabel 5650 7150 0    60   Input ~ 0
 +5V
@@ -1060,4 +1060,18 @@ Wire Notes Line
 	5000 6700 5000 7200
 Wire Notes Line
 	5000 7200 5050 7200
+Text Notes 2350 4200 0    60   Italic 12
+connect to -5V of Fluke8050a!
+Text Notes 2300 600  0    60   Italic 12
+connect to GND of Fluke8050a!
+Text Notes 10100 5600 0    63   ~ 0
+PD6 - D12\nPB7 - D11\nPB6 - D10\nPB5 - D9\nPB4 - D8\nPE6 - D7\nPD7 - D6\nPC6 - D5\nPD4 - D4\nPD0 - D3\nPD1 - D2
+Text Notes 10450 6200 0    63   ~ 0
+PD2 - D0 - RX\nPD3 - D1 - TX\nPB0 - D17 - SS - RX_LED\nPB2 - D16 - MOSI
+Text Notes 7600 6200 2    60   ~ 0
+MISO - D14 - PB3\nSCK - D15 - PB1
+Text Notes 7550 5400 0    63   ~ 0
+A0 - PF7\nA1 - PF6\nA2 - PF5\nA3 - PF4\nA4 - PF1\nA5 - PF0
+Text Notes 7700 4500 0    63   ~ 0
+D13 - PC7
 $EndSCHEMATC

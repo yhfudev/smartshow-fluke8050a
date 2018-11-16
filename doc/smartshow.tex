@@ -132,11 +132,6 @@ The Arduino UNO is ATMega328p based module and have no enough pin resource to ha
 and an SPI LCD module, so it's only used as headless UART port for outside. While it still have the ability
 to drive an I2C OLED display, and an I2C slot is reserved.
 
-\begin{figure}[h!t] \centering
-    \includegraphics[width=0.8\linewidth]{figures/sch-smartshow-levelshift.pdf}
-    \caption{Level shifting works between Arduino UNO and ESP8266.} \label{fig:levelshift}
-\end{figure}
-
 
 The Arduino Micro is ATMega32U4 based module, it can drive a TFT SPI display module.
 So it's used to be a replacement of original Fluke 8050a LCD display.
@@ -146,7 +141,17 @@ So it's used to be a replacement of original Fluke 8050a LCD display.
     \caption{ATMega32U4 as display interface.} \label{fig:smartshow-atmega32u4}
 \end{figure}
 
-ESP8266 would not start if the TX port is connected directly or via bi-direction level shifting to the RX of Arduino UNO, the solution is to use an LM393 level shifting.
+
+
+
+ESP8266 would not start if the TX port is connected directly or via bi-direction level shifting to the RX of Arduino UNO, the solution is to use an LM393 level shifting (Figure \ref{fig:levelshift}).
+
+\begin{figure}[h!t] \centering
+    \includegraphics[width=0.8\linewidth]{figures/sch-smartshow-levelshift.pdf}
+    \caption{Level shifting works between Arduino UNO and ESP8266.} \label{fig:levelshift}
+\end{figure}
+
+
 
 \begin{figure}[h!t] \centering
     \includegraphics{figures/sch-smartshow-esp8266.pdf}
@@ -220,11 +225,7 @@ ESP8266 would not start if the TX port is connected directly or via bi-direction
 
 
 
-
-
-
-
-
+\clearpage
 
 \section{Software}
 
@@ -249,18 +250,42 @@ The AVR firmware monitor the pins \texttt{ST0, ST1, ST2, ST3, ST4, ST5} etc,
 and decrypt the strobe signal to value displayed in the LCD.
 
 
+The Arduino Micro Pro board needs the pins out:
+\begin{lstlisting}[language=bash]
+1 - pin  8 - PB0 - D17/RX LED
+3 - pin 41 - PF0 - A5
+5 - pin 40 - PF1 - A4
+7 - pin 22 - PD5 - TX LED
+
+2 - pin 12 - PB7 - D11
+4 - pin 26 - PD6 - D12
+6 - pin 32 - PC7 - D13
+8 - X
+\end{lstlisting}
+
+
+
+\begin{figure}[h!t] \centering
+    \includegraphics[width=0.40\linewidth]{figures/micropro-morepin-front.jpg}
+    \caption{Pinouts of extra pins.} \label{fig:mocropropins}
+\end{figure}
+
+
+
+
+
 The strobe signal decrypt part of the source code of firmware are from the project
 \href{http://vondervotteimittiss.com/belfry/?p=180}{Fluke 8050a graphic display}.
 
 
-The full source project can be gotten from the repository \url{https://github.com/yhfudev/fluke8050a-screen.git}
+The full source project can be gotten from the repository \url{https://github.com/yhfudev/smartshow-fluke8050a.git}
 
 
 
 \subsection{ESP}
 
 For ESP, we use the project \href{https://github.com/jeelabs/esp-link.git}{esp-link}.
-The pins are configured showed in the Figure \ref{fig:smartshow-confwin}.
+The pins are configured as showed in the Figure \ref{fig:smartshow-confwin}.
 
 \begin{figure}[h!t] \centering
     \includegraphics[width=0.8\linewidth]{figures/smartshow-confwin.png}
