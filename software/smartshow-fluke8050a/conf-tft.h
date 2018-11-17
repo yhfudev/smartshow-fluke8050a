@@ -30,6 +30,19 @@ extern "C" {
 #define OLED_SPI1_MOSI 11   //   SDA   pin#11 (MOSI); pinXX (MISO)
 #define OLED_SPI1_CLK  13   //   SCL   pin#13 (SCL)
 
+#if defined (__AVR_ATmega32U4__)
+#undef  OLED_SPI1_CS
+#undef  OLED_SPI1_DC
+#undef  OLED_SPI1_RST
+#undef  OLED_SPI1_MOSI
+#undef  OLED_SPI1_CLK
+#define OLED_SPI1_CS   17   //   CS
+#define OLED_SPI1_DC   13   //   D/C   data or command)
+#define OLED_SPI1_RST  -1   //   RST   (or reset pin -1)
+#define OLED_SPI1_MOSI 16   //   SDA   pin#11 (MOSI); pinXX (MISO)
+#define OLED_SPI1_CLK  13   //   SCL   pin#13 (SCL)
+#endif
+
 #undef OLED_SPI2_CS
 #undef OLED_SPI2_DC
 #undef OLED_SPI2_RST

@@ -19,20 +19,22 @@
 
 
 #if USE_DISPLAY
-#define USE_MCUFONT 0
 
-#if 0
-#define USE_U8G     1
-#define USE_TTF     0
-#define USE_OLED    1
-#define USE_DISPLAY_I2C 1
-#define USE_DISPLAY_SPI 0
-#else
+#if defined (__AVR_ATmega32U4__)
+#define USE_MCUFONT 0
 #define USE_U8G     0
 #define USE_TTF     1
 #define USE_OLED    0
 #define USE_DISPLAY_I2C 0
 #define USE_DISPLAY_SPI 1
+
+#else
+#define USE_MCUFONT 1
+#define USE_U8G     1
+#define USE_TTF     0
+#define USE_OLED    1
+#define USE_DISPLAY_I2C 1
+#define USE_DISPLAY_SPI 0
 #endif
 
 
