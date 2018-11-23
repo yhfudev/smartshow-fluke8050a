@@ -352,6 +352,9 @@ uint8_t get_hv(void) {
   return test_bit(scanCodes[ST0], BIT_HV);
 }
 
+#define get_value_hv_bp(a)
+
+
 #define REG_STx PINF // for 32u4
 void isr_st0(uint8_t is_high)
 {

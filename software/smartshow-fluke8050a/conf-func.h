@@ -53,6 +53,13 @@
 #endif // USE_DISPLAY
 
 
+#if USE_TTF
+//#define USE_TFT_ST7735   1
+//#define USE_TFT_ILI9340H 1
+#define USE_TFT_ILI9341  1
+#endif
+
+
 #if DEBUG
 #include "ugdebug.h"
 #define TD TRACE

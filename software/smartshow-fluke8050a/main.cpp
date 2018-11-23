@@ -47,6 +47,7 @@
 #define MSG_EOL "\r\n"
 
 #include <SPI.h>
+#include "conf-func.h"
 #include "conf-tft.h"
 #include "conf-oled.h"
 #include "conf-uart.h"
@@ -78,7 +79,6 @@ void tft_update(void) {}
 void setup_mcu(void) { int a; a ++; return; }
 void loop_once_mcu(void) { int a; a ++; return; }
 #endif // __AVR__
-
 
 
 
@@ -207,9 +207,14 @@ void setup_serial() {
 
 #if USE_SERVER
   // welcome message
+  char m_input_buffer[11];
   char m_output_buffer[SZ_IO_BUFFER];
   size_t sz_out = sizeof(m_output_buffer);
-  app_process_command("INFO", m_output_buffer, &sz_out);
+  strcpy_P(m_input_buffer, PSTR("VERSION"));
+  app_process_command(m_input_buffer, m_output_buffer, &sz_out);
+  SERIAL_DEBUG.print(m_output_buffer);
+  strcpy_P(m_input_buffer, PSTR("BUILDINFO"));
+  app_process_command(m_input_buffer, m_output_buffer, &sz_out);
   SERIAL_DEBUG.println(m_output_buffer);
 #endif
 }
@@ -337,17 +342,44 @@ app_process_command(char * input_buffer, char * output_buffer, size_t *sz_out)
     } else if (CSTR_HAS_HEADER(CSTR_COMMAND, input_buffer)) {
         //TD("print version");
         snprintf_P(output_buffer, *sz_out
-            , PSTR("220 %d.%d.%d" MSG_EOL)
+            , PSTR("220 SmartShow v%d.%d.%d (" __DATE__ " " __TIME__ ")" MSG_EOL)
             , VER_MAJOR, VER_MINOR, VER_REVISION);
         //TD("end print version");
 #undef CSTR_COMMAND
 
-#define CSTR_COMMAND "INFO"
+#define CSTR_COMMAND "BUILDINFO"
     } else if (CSTR_HAS_HEADER(CSTR_COMMAND, input_buffer)) {
         //TD("print information");
         snprintf_P(output_buffer, *sz_out
-            , PSTR("220 SmartShow v%d.%d.%d (" __DATE__ " " __TIME__ ")" MSG_EOL)
-            , VER_MAJOR, VER_MINOR, VER_REVISION);
+            , PSTR("220 Conf: "
+#if DEBUG
+                "DBG"
+#else
+                "REL"
+#endif
+#if USE_MCUFONT
+                ",mcufont"
+#endif
+#if USE_U8G
+                ",u8glib"
+#else
+                ",AdafruitGfx"
+#endif
+#if USE_OLED
+                ",OLED"
+#else
+                ",TFT"
+  #if USE_TFT_ST7735
+                ",ST7735"
+  #elif USE_TFT_ILI9340H
+                ",ILI9340H"
+  #elif USE_TFT_ILI9341
+                ",ILI9341"
+  #endif
+#endif
+                MSG_EOL
+              )
+            );
         //TD("end print version");
 #undef CSTR_COMMAND
 
@@ -420,7 +452,7 @@ app_process_command(char * input_buffer, char * output_buffer, size_t *sz_out)
 
 #define CSTR_COMMAND "HELP"
     } else if (CSTR_HAS_HEADER(CSTR_COMMAND, input_buffer)) {
-      strcpy_P(output_buffer, PSTR("220 Supported commands: READ, INFO, VERSION, DATE, UNXTIME, QUIT" MSG_EOL));
+      strcpy_P(output_buffer, PSTR("220 Supported commands: READ, BUILDINFO, VERSION, DATE, UNXTIME, QUIT" MSG_EOL));
 #undef CSTR_COMMAND
 
     } else {

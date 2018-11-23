@@ -12,6 +12,7 @@
 #include "f8res-symbol-unit.h"
 #include "f8res-symbol-mode.h"
 
+
 #if USE_ROM_LIMIT
 
 #if 1

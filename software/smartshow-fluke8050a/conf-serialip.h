@@ -41,7 +41,7 @@ extern "C" {
 #endif
 
 #ifdef __AVR__
-#define IP_HOSTNAME "328p"
+#define IP_HOSTNAME "avr"
 #else
 #define IP_HOSTNAME "esp8266"
 #endif

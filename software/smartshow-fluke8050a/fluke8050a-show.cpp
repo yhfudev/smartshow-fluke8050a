@@ -47,6 +47,13 @@ void update_timebuf(void)
 }
 
 
+#if USE_TFT_ILI9340H
+#define tft_fillRect(bx, by, bw, bh, color)
+#else
+#define tft_fillRect(bx, by, bw, bh, color) tft.fillRect(bx, by, bw, bh, color)
+#endif
+
+
 #if USE_U8G
 
 int g_tft_max_x = 128;
@@ -179,8 +186,7 @@ int g_tft_offset_y = TFT_128x160_OFFSET_Y;
 #if defined(USE_TTF) && USE_TTF
 #include "conf-tft.h"
 
-
-#if USE_DISPLAY_SPI
+#if USE_TFT_ST7735
 // Option 1 (recommended): must use the hardware SPI pins
 // (for UNO thats sclk = 13 and sid = 11) and pin 10 must be
 // an output. This is much faster - also required if you want
@@ -194,8 +200,16 @@ Adafruit_ST7735 tft = Adafruit_ST7735(TFT_CS, TFT_DC, TFT_RST);
 //#define TFT_MOSI 11   // set these to be whatever pins you like!
 //Adafruit_ST7735 tft = Adafruit_ST7735(TFT_CS, TFT_DC, TFT_MOSI, TFT_SCLK, TFT_RST);
 //Adafruit_ST7735 tft = Adafruit_ST7735(TFT_CS, TFT_DC, TFT_MOSI, TFT_SCLK, TFT_RST);
+
+#elif USE_TFT_ILI9340H
+Modified_Adafruit_ILI9340 tft = Modified_Adafruit_ILI9340(TFT_DC, TFT_RST);
+
+#elif USE_TFT_ILI9341
+Adafruit_ILI9341 tft = Adafruit_ILI9341(TFT_CS,TFT_DC);
+
 #endif // USE_DISPLAY_SPI
 
+#if USE_TFT_ST7735
 void
 tft_type(int type)
 {
@@ -229,14 +243,30 @@ tft_type(int type)
   }
   tft.fillScreen(ST77XX_BLACK);
 }
+#endif // USE_TFT_ST7735
 
 void tft_init(void) {
   //Serial.begin(9600);
   //TD("Hello! ST77xx TFT Test");
 
-#if 0
-  tft_type(1);
-#elif 1
+#if USE_TFT_ILI9340H
+  g_tft_max_x = TFT_320x240_MAX_X;
+  g_tft_max_y = TFT_320x240_MAX_Y;
+  g_tft_offset_x = TFT_320x240_OFFSET_X;
+  g_tft_offset_y = TFT_320x240_OFFSET_Y;
+  tft.begin();
+  tft.setRotation( 3 );
+
+#elif USE_TFT_ILI9341
+  g_tft_max_x = TFT_320x240_MAX_X;
+  g_tft_max_y = TFT_320x240_MAX_Y;
+  g_tft_offset_x = TFT_320x240_OFFSET_X;
+  g_tft_offset_y = TFT_320x240_OFFSET_Y;
+  tft.begin();
+  tft.setRotation( 3 );
+
+#elif USE_TFT_ST7735
+  //tft_type(1);
   g_tft_max_x = TFT_160x80_MAX_X;
   g_tft_max_y = TFT_160x80_MAX_Y;
   g_tft_offset_x = TFT_160x80_OFFSET_X;
@@ -270,7 +300,7 @@ void tft_init(void) {
   tft_drawtext(0, 20, "inited", ST77XX_WHITE); //ST77XX_BLACK);
 #endif// 0
 
-  tft.fillScreen(ST77XX_BLACK);
+  tft.fillScreen(0);//ST77XX_BLACK);
 }
 
 void
@@ -279,7 +309,7 @@ tft_show_time(int x, int y)
   int16_t bx = 0, by = 0;
   uint16_t bw = 0, bh = 0;
   tft_getTextBounds(time_buf, x, y, &bx, &by, &bw, &bh);
-  tft.fillRect(bx, by, bw, bh, BG_COLOR);
+  tft_fillRect(bx, by, bw, bh, BG_COLOR);
   tft_drawtext(x, y, time_buf, FG_COLOR);
 }
 
@@ -291,7 +321,6 @@ void tft_update(void) {
 
 
 #endif // USE_TTF
-
 
 
 
@@ -379,9 +408,13 @@ void tft_drawtext(int x, int y, char *text, uint16_t color) {
 #endif
 }
 
+#if USE_TFT_ILI9340H
+#define tft_bmpDraw(bm, x, y, w, h, c, bg) tft.bmpDraw((bm), OFFSET_X+(x), OFFSET_Y+(y), (w), (h), (c), (bg))
+#else
 //drawBitmap(int16_t x, int16_t y, const uint8_t bitmap[], int16_t w, int16_t h, uint16_t color);
 //drawBitmap(int16_t x, int16_t y, const uint8_t bitmap[], int16_t w, int16_t h, uint16_t color, uint16_t bg);
 #define tft_bmpDraw(bm, x, y, w, h, c, bg) tft.drawBitmap(OFFSET_X+(x), OFFSET_Y+(y), (const uint8_t *)(bm), (w), (h), (c), (bg))
+#endif
 
 #define tft_fillRect(bx, by, bw, bh, color) tft.fillRect(bx, by, bw, bh, color)
 #define tft_drawLine(x1,y1, x2,y2, color) tft.drawLine(x1,y1, x2,y2, color)
@@ -394,11 +427,11 @@ void tft_drawtext(int x, int y, char *text, uint16_t color) {
 
 #if USE_DISPLAY
 
-#if 1// USE_MCUFONT
-#include "fluke8050a-show-mcufont.h"
-#else
+#if USE_TFT_ILI9340H
 #include "fluke8050a-show-raw.h"
-#endif // USE_MCUFONT
+#else
+#include "fluke8050a-show-mcufont.h"
+#endif // USE_TFT_ILI9340H
 
 #endif // USE_DISPLAY
 

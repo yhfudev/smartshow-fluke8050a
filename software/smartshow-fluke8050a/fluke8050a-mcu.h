@@ -14,6 +14,7 @@
 #include <WProgram.h>
 #endif
 
+#include "conf-func.h"
 #include "conf-tft.h"
 #include "conf-oled.h"
 #include "conf-uart.h"

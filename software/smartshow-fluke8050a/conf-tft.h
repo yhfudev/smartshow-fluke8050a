@@ -71,14 +71,32 @@ extern "C" {
 
 
 #ifdef __cplusplus
-
 #if USE_TTF
+
+#if USE_TFT_ST7735
 #include "Adafruit_GFX.h"    // Core graphics library
 #include "Adafruit_ST7735.h" // Hardware-specific library for ST7735
 extern Adafruit_ST7735 tft;
+
+#elif USE_TFT_ILI9340H
+#include "Adafruit_GFX.h"    // Core graphics library
+#include "Modified_Adafruit_ILI9340.h" // Hardware-specific library for ST7735
+extern Modified_Adafruit_ILI9340 tft;
+
+#elif USE_TFT_ILI9341
+#include "Adafruit_GFX.h"    // Core graphics library
+#include "Adafruit_ILI9341.h"
+extern Adafruit_ILI9341 tft;
+
+#else
+#error "Please specify the type of TFT driver!"
 #endif
 
+#endif // USE_TTF
 #endif // __cplusplus
+
+
+
 
 #endif /* _CONFIG_TFT_H */
 
