@@ -1,4 +1,5 @@
 EESchema Schematic File Version 2
+LIBS:fluke8050-screen-rescue
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -31,12 +32,10 @@ LIBS:valves
 LIBS:nodemcu
 LIBS:arduino
 LIBS:ssd1306
-LIBS:cpuz80
 LIBS:mostek
 LIBS:arduino_micro_shield
 LIBS:maplemini
 LIBS:dk_Logic-Buffers-Drivers-Receivers-Transceivers
-LIBS:fluke8050-screen-cache
 EELAYER 25 0
 EELAYER END
 $Descr USLetter 11000 8500

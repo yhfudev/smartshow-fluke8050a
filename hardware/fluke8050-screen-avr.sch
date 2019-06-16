@@ -1,4 +1,5 @@
 EESchema Schematic File Version 2
+LIBS:fluke8050-screen-rescue
 LIBS:power
 LIBS:device
 LIBS:transistors
@@ -31,12 +32,10 @@ LIBS:valves
 LIBS:nodemcu
 LIBS:arduino
 LIBS:ssd1306
-LIBS:cpuz80
 LIBS:mostek
 LIBS:arduino_micro_shield
 LIBS:maplemini
 LIBS:dk_Logic-Buffers-Drivers-Receivers-Transceivers
-LIBS:fluke8050-screen-cache
 EELAYER 25 0
 EELAYER END
 $Descr USLetter 11000 8500
@@ -54,12 +53,12 @@ $EndDescr
 $Comp
 L NodeMCU_0.9_Vraw U?
 U 1 1 5BBBC88B
-P 5850 2150
-F 0 "U?" H 5850 2950 50  0000 C CNN
-F 1 "NodeMCU_0.9_Vraw" H 5850 1300 50  0000 C CNN
-F 2 "" H 6100 2150 50  0000 C CNN
-F 3 "" H 6100 2150 50  0000 C CNN
-	1    5850 2150
+P 5650 1600
+F 0 "U?" H 5650 2400 50  0000 C CNN
+F 1 "NodeMCU_0.9_Vraw" H 5650 750 50  0000 C CNN
+F 2 "" H 5900 1600 50  0000 C CNN
+F 3 "" H 5900 1600 50  0000 C CNN
+	1    5650 1600
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -76,12 +75,12 @@ $EndComp
 $Comp
 L R R?
 U 1 1 5BBBC9A0
-P 6850 4250
-F 0 "R?" V 6930 4250 50  0000 C CNN
-F 1 "1k" V 6850 4250 50  0000 C CNN
-F 2 "" V 6780 4250 50  0001 C CNN
-F 3 "" H 6850 4250 50  0001 C CNN
-	1    6850 4250
+P 7750 3600
+F 0 "R?" V 7830 3600 50  0000 C CNN
+F 1 "1k" V 7750 3600 50  0000 C CNN
+F 2 "" V 7680 3600 50  0001 C CNN
+F 3 "" H 7750 3600 50  0001 C CNN
+	1    7750 3600
 	0    1    1    0   
 $EndComp
 Text GLabel 1050 2500 0    60   Output ~ 0
@@ -149,37 +148,37 @@ RNGb
 $Comp
 L R R?
 U 1 1 5BBBF566
-P 7050 4450
-F 0 "R?" V 7130 4450 50  0000 C CNN
-F 1 "2k" V 7050 4450 50  0000 C CNN
-F 2 "" V 6980 4450 50  0001 C CNN
-F 3 "" H 7050 4450 50  0001 C CNN
-	1    7050 4450
+P 7950 3800
+F 0 "R?" V 8030 3800 50  0000 C CNN
+F 1 "2k" V 7950 3800 50  0000 C CNN
+F 2 "" V 7880 3800 50  0001 C CNN
+F 3 "" H 7950 3800 50  0001 C CNN
+	1    7950 3800
 	-1   0    0    1   
 $EndComp
 Wire Wire Line
-	7050 4250 7050 4300
+	7950 3600 7950 3650
 $Comp
 L GND #PWR?
 U 1 1 5BBBF641
-P 7050 4700
-F 0 "#PWR?" H 7050 4450 50  0001 C CNN
-F 1 "GND" H 7050 4550 50  0000 C CNN
-F 2 "" H 7050 4700 50  0001 C CNN
-F 3 "" H 7050 4700 50  0001 C CNN
-	1    7050 4700
+P 7950 4050
+F 0 "#PWR?" H 7950 3800 50  0001 C CNN
+F 1 "GND" H 7950 3900 50  0000 C CNN
+F 2 "" H 7950 4050 50  0001 C CNN
+F 3 "" H 7950 4050 50  0001 C CNN
+	1    7950 4050
 	1    0    0    -1  
 $EndComp
-Connection ~ 7050 4250
-Text GLabel 6400 2350 2    60   Input ~ 0
+Connection ~ 7950 3600
+Text GLabel 6200 1800 2    60   Input ~ 0
 ESP_RX
-Text GLabel 6400 2450 2    60   Output ~ 0
+Text GLabel 6200 1900 2    60   Output ~ 0
 ESP_TX
 Wire Wire Line
-	6400 1750 6300 1750
+	6200 1200 6100 1200
 Text GLabel 3200 7000 2    60   Input ~ 0
 ESP_TX_5V
-Text GLabel 7100 4250 2    60   Output ~ 0
+Text GLabel 8000 3600 2    60   Output ~ 0
 ESP_RX
 Wire Wire Line
 	3200 6850 3050 6850
@@ -296,50 +295,50 @@ Wire Wire Line
 $Comp
 L GND #PWR?
 U 1 1 5BBCAF50
-P 6350 3000
-F 0 "#PWR?" H 6350 2750 50  0001 C CNN
-F 1 "GND" H 6350 2850 50  0000 C CNN
-F 2 "" H 6350 3000 50  0001 C CNN
-F 3 "" H 6350 3000 50  0001 C CNN
-	1    6350 3000
+P 6150 2450
+F 0 "#PWR?" H 6150 2200 50  0001 C CNN
+F 1 "GND" H 6150 2300 50  0000 C CNN
+F 2 "" H 6150 2450 50  0001 C CNN
+F 3 "" H 6150 2450 50  0001 C CNN
+	1    6150 2450
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	6300 2750 6350 2750
+	6100 2200 6150 2200
 Wire Wire Line
-	6350 2050 6350 3000
+	6150 1500 6150 2450
 $Comp
 L +5V #PWR?
 U 1 1 5BBCAFEF
-P 5100 2850
-F 0 "#PWR?" H 5100 2700 50  0001 C CNN
-F 1 "+5V" H 5100 2990 50  0000 C CNN
-F 2 "" H 5100 2850 50  0001 C CNN
-F 3 "" H 5100 2850 50  0001 C CNN
-	1    5100 2850
+P 4900 2300
+F 0 "#PWR?" H 4900 2150 50  0001 C CNN
+F 1 "+5V" H 4900 2440 50  0000 C CNN
+F 2 "" H 4900 2300 50  0001 C CNN
+F 3 "" H 4900 2300 50  0001 C CNN
+	1    4900 2300
 	1    0    0    -1  
 $EndComp
 $Comp
 L GND #PWR?
 U 1 1 5BBCB0BD
-P 5350 3000
-F 0 "#PWR?" H 5350 2750 50  0001 C CNN
-F 1 "GND" H 5350 2850 50  0000 C CNN
-F 2 "" H 5350 3000 50  0001 C CNN
-F 3 "" H 5350 3000 50  0001 C CNN
-	1    5350 3000
+P 5150 2450
+F 0 "#PWR?" H 5150 2200 50  0001 C CNN
+F 1 "GND" H 5150 2300 50  0000 C CNN
+F 2 "" H 5150 2450 50  0001 C CNN
+F 3 "" H 5150 2450 50  0001 C CNN
+	1    5150 2450
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	5400 2750 5350 2750
+	5200 2200 5150 2200
 Wire Wire Line
-	5350 2350 5350 3000
+	5150 1800 5150 2450
 Wire Wire Line
-	5400 2350 5350 2350
-Connection ~ 5350 2750
+	5200 1800 5150 1800
+Connection ~ 5150 2200
 Wire Wire Line
-	6300 2050 6350 2050
-Connection ~ 6350 2750
+	6100 1500 6150 1500
+Connection ~ 6150 2200
 Text GLabel 3600 5200 2    60   Output ~ 0
 LCD_SPI_SCL
 Text GLabel 3600 5800 2    60   Output ~ 0
@@ -358,155 +357,153 @@ Wire Wire Line
 	3200 5650 3050 5650
 Text GLabel 1500 7000 0    60   Output ~ 0
 LCD_SPI_RES
-Text GLabel 6400 1550 2    60   Output ~ 0
+Text GLabel 6200 1000 2    60   Output ~ 0
 OLED_I2C_SCL
-Text GLabel 6400 1650 2    60   BiDi ~ 0
+Text GLabel 6200 1100 2    60   BiDi ~ 0
 OLED_I2C_SDA
 Wire Wire Line
-	6300 1550 6400 1550
+	6100 1000 6200 1000
 Wire Wire Line
-	6400 1650 6300 1650
-Text GLabel 6400 2150 2    60   Output ~ 0
+	6200 1100 6100 1100
+Text GLabel 6200 1600 2    60   Output ~ 0
 OLED_SPI_SCL
-Text GLabel 6400 1850 2    60   Output ~ 0
+Text GLabel 6200 1300 2    60   Output ~ 0
 OLED_SPI_SDA
-Text GLabel 6400 1750 2    60   Output ~ 0
+Text GLabel 6200 1200 2    60   Output ~ 0
 OLED_SPI_DC
-Text GLabel 5150 2550 1    60   Output ~ 0
+Text GLabel 4950 2000 1    60   Output ~ 0
 OLED_SPI_RST
 Wire Wire Line
-	5100 2850 5400 2850
+	4900 2300 5200 2300
 Wire Wire Line
-	6400 1850 6300 1850
+	6200 1300 6100 1300
 Wire Wire Line
-	6300 2350 6400 2350
+	6100 1800 6200 1800
 Wire Wire Line
-	6400 2150 6300 2150
+	6200 1600 6100 1600
 Wire Wire Line
-	6300 2450 6400 2450
+	6100 1900 6200 1900
 Wire Wire Line
-	7000 4250 7100 4250
+	7900 3600 8000 3600
 Wire Wire Line
-	7050 4600 7050 4700
+	7950 3950 7950 4050
 Text Notes 3200 3500 0    60   ~ 0
 Fluke 8050a U17
 $Comp
 L ARDUINO_MICRO_SHIELD U?
 U 1 1 5BC8A9CF
-P 9500 6200
-F 0 "U?" H 11250 6600 60  0000 C CNN
-F 1 "ARDUINO_MICRO_SHIELD" H 10350 6800 60  0000 C CNN
-F 2 "" H 9900 6150 60  0000 C CNN
-F 3 "" H 9900 6150 60  0000 C CNN
-	1    9500 6200
+P 7200 6100
+F 0 "U?" H 8950 6500 60  0000 C CNN
+F 1 "ARDUINO_MICRO_SHIELD" H 8050 6700 60  0000 C CNN
+F 2 "" H 7600 6050 60  0000 C CNN
+F 3 "" H 7600 6050 60  0000 C CNN
+	1    7200 6100
 	0    -1   -1   0   
 $EndComp
-Text GLabel 9800 5050 2    60   Input ~ 0
+Text GLabel 7500 4950 2    60   Input ~ 0
 ST4
-Text GLabel 9800 4950 2    60   Input ~ 0
+Text GLabel 7500 4850 2    60   Input ~ 0
 ST3
-Text GLabel 9800 4850 2    60   Input ~ 0
+Text GLabel 7500 4750 2    60   Input ~ 0
 ST2
-Text GLabel 9800 4750 2    60   Input ~ 0
+Text GLabel 7500 4650 2    60   Input ~ 0
 ST1
-Text GLabel 9800 4650 2    60   Input ~ 0
+Text GLabel 7500 4550 2    60   Input ~ 0
 ST0
-Text GLabel 8250 5350 0    60   Input ~ 0
+Text GLabel 5950 5250 0    60   Input ~ 0
 HV
-Text GLabel 8250 4850 0    60   Input ~ 0
+Text GLabel 5950 4750 0    60   Input ~ 0
 W
-Text GLabel 8250 4950 0    60   Input ~ 0
+Text GLabel 5950 4850 0    60   Input ~ 0
 X
-Text GLabel 8250 5050 0    60   Input ~ 0
+Text GLabel 5950 4950 0    60   Input ~ 0
 Y
-Text GLabel 8250 5150 0    60   Input ~ 0
+Text GLabel 5950 5050 0    60   Input ~ 0
 Z
-Text GLabel 9150 4250 2    60   Input ~ 0
+Text GLabel 7000 6200 2    60   Input ~ 0
 DP
-Text GLabel 9800 5250 2    60   Input ~ 0
+Text GLabel 7500 5150 2    60   Input ~ 0
 Fa
-Text GLabel 9800 5450 2    60   Input ~ 0
+Text GLabel 7500 5350 2    60   Input ~ 0
 Fb
-Text GLabel 8250 6050 0    60   Input ~ 0
+Text GLabel 5950 5950 0    60   Input ~ 0
 Fc
-Text GLabel 9800 5550 2    60   Input ~ 0
+Text GLabel 7500 5450 2    60   Input ~ 0
 Fd
-Text GLabel 8250 5250 0    60   Input ~ 0
+Text GLabel 5950 5150 0    60   Input ~ 0
 BP
-Text GLabel 9800 5350 2    60   Input ~ 0
+Text GLabel 7500 5250 2    60   Input ~ 0
 RNGc
-Text GLabel 9800 4550 2    60   Input ~ 0
+Text GLabel 7500 4450 2    60   Input ~ 0
 RNGa
-Text GLabel 9800 5150 2    60   Input ~ 0
+Text GLabel 7500 5050 2    60   Input ~ 0
 RNGb
 Wire Wire Line
-	9800 4550 9700 4550
+	7500 4450 7400 4450
 Wire Wire Line
-	9700 4650 9800 4650
+	7400 4550 7500 4550
 Wire Wire Line
-	9800 4750 9700 4750
+	7500 4650 7400 4650
 Wire Wire Line
-	9700 4850 9800 4850
+	7400 4750 7500 4750
 Wire Wire Line
-	9800 4950 9700 4950
+	7500 4850 7400 4850
 Wire Wire Line
-	9700 5050 9800 5050
+	7400 4950 7500 4950
 Wire Wire Line
-	9800 5150 9700 5150
+	7500 5050 7400 5050
 Wire Wire Line
-	9800 5350 9700 5350
+	7500 5250 7400 5250
 Wire Wire Line
-	9700 5450 9800 5450
+	7400 5350 7500 5350
 Wire Wire Line
-	9800 5550 9700 5550
+	7500 5450 7400 5450
 Wire Wire Line
-	9700 5850 9800 5850
+	7400 5750 7500 5750
 Wire Wire Line
-	8350 4850 8250 4850
+	6050 4750 5950 4750
 Wire Wire Line
-	8250 4950 8350 4950
+	5950 4850 6050 4850
 Wire Wire Line
-	8350 5050 8250 5050
+	6050 4950 5950 4950
 Wire Wire Line
-	8250 5150 8350 5150
+	5950 5050 6050 5050
 Wire Wire Line
-	8350 5250 8250 5250
+	6050 5150 5950 5150
 Wire Wire Line
-	8250 5350 8350 5350
-Text GLabel 8250 4550 0    60   Output ~ 0
+	5950 5250 6050 5250
+Text GLabel 5950 4450 0    60   Output ~ 0
 LCD_SPI_DC
-Text GLabel 9800 5750 2    60   Output ~ 0
+Text GLabel 7500 5650 2    60   Output ~ 0
 LCD_SPI_RES
-Text GLabel 8250 6150 0    60   Output ~ 0
+Text GLabel 5950 6050 0    60   Output ~ 0
 LCD_SPI_SCL
-Text GLabel 9800 6150 2    60   Output ~ 0
+Text GLabel 7500 6050 2    60   Output ~ 0
 LCD_SPI_SDA
-Text GLabel 9800 6050 2    60   Output ~ 0
+Text GLabel 7500 5950 2    60   Output ~ 0
 LCD_SPI_CS
 Wire Wire Line
-	9700 6050 9800 6050
+	7400 5950 7500 5950
 Wire Wire Line
-	9800 6150 9700 6150
+	7500 6050 7400 6050
 Wire Wire Line
-	8350 6150 8250 6150
+	6050 6050 5950 6050
 Wire Wire Line
-	8250 4550 8350 4550
+	5950 4450 6050 4450
 Wire Wire Line
-	9700 5750 9800 5750
-Text GLabel 9800 5850 2    60   Input ~ 0
+	7400 5650 7500 5650
+Text GLabel 7500 5750 2    60   Input ~ 0
 ESP_TX_5V
-Text GLabel 9800 5950 2    60   Output ~ 0
+Text GLabel 7500 5850 2    60   Output ~ 0
 ESP_RX_5V
 Text GLabel 3350 1800 2    60   Output ~ 0
 BP
 Wire Wire Line
 	3200 1800 3350 1800
-Text GLabel 9000 4250 0    60   Input ~ 0
+Text GLabel 6850 6200 0    60   Input ~ 0
 PIND5_LED
 Wire Wire Line
-	9000 4250 9150 4250
-Wire Wire Line
-	8350 6050 8250 6050
+	6050 5950 5950 5950
 Text GLabel 3200 5350 2    60   Input ~ 0
 Fa
 Text GLabel 3200 5650 2    60   Input ~ 0
@@ -518,117 +515,117 @@ Fd
 $Comp
 L ARDUINO_MICRO_SHIELD U?
 U 1 1 5BCA403A
-P 9550 3050
-F 0 "U?" H 11300 3450 60  0000 C CNN
-F 1 "ARDUINO_MICRO_SHIELD" H 10400 3650 60  0000 C CNN
-F 2 "" H 9950 3000 60  0000 C CNN
-F 3 "" H 9950 3000 60  0000 C CNN
-	1    9550 3050
+P 9350 2500
+F 0 "U?" H 11100 2900 60  0000 C CNN
+F 1 "ARDUINO_MICRO_SHIELD" H 10200 3100 60  0000 C CNN
+F 2 "" H 9750 2450 60  0000 C CNN
+F 3 "" H 9750 2450 60  0000 C CNN
+	1    9350 2500
 	0    -1   -1   0   
 $EndComp
-Text GLabel 9850 1900 2    60   Input ~ 0
+Text GLabel 9650 1350 2    60   Input ~ 0
 ST4
-Text GLabel 9850 2300 2    60   Input ~ 0
+Text GLabel 9650 1750 2    60   Input ~ 0
 ST3
-Text GLabel 9850 2400 2    60   Input ~ 0
+Text GLabel 9650 1850 2    60   Input ~ 0
 ST2
-Text GLabel 9850 2700 2    60   Input ~ 0
+Text GLabel 9650 2150 2    60   Input ~ 0
 ST1
-Text GLabel 9850 2800 2    60   Input ~ 0
+Text GLabel 9650 2250 2    60   Input ~ 0
 ST0
-Text GLabel 8300 2200 0    60   Input ~ 0
+Text GLabel 8100 1650 0    60   Input ~ 0
 HV
-Text GLabel 8300 1700 0    60   Input ~ 0
+Text GLabel 8100 1150 0    60   Input ~ 0
 W
-Text GLabel 8300 1800 0    60   Input ~ 0
+Text GLabel 8100 1250 0    60   Input ~ 0
 X
-Text GLabel 8300 1900 0    60   Input ~ 0
+Text GLabel 8100 1350 0    60   Input ~ 0
 Y
-Text GLabel 8300 2000 0    60   Input ~ 0
+Text GLabel 8100 1450 0    60   Input ~ 0
 Z
-Text GLabel 8300 2100 0    60   Input ~ 0
+Text GLabel 8100 1550 0    60   Input ~ 0
 DP
-Text GLabel 9850 1400 2    60   Input ~ 0
+Text GLabel 9650 850  2    60   Input ~ 0
 Fa
-Text GLabel 9850 2200 2    60   Input ~ 0
+Text GLabel 9650 1650 2    60   Input ~ 0
 Fb
-Text GLabel 9850 2000 2    60   Input ~ 0
+Text GLabel 9650 1450 2    60   Input ~ 0
 Fc
-Text GLabel 9200 1100 2    60   Input ~ 0
+Text GLabel 9150 2600 2    60   Input ~ 0
 Fd
-Text GLabel 9850 1500 2    60   Input ~ 0
+Text GLabel 9650 950  2    60   Input ~ 0
 BP
-Text GLabel 9850 1800 2    60   Input ~ 0
+Text GLabel 9650 1250 2    60   Input ~ 0
 RNGc
-Text GLabel 9850 1600 2    60   Input ~ 0
+Text GLabel 9650 1050 2    60   Input ~ 0
 RNGa
-Text GLabel 9850 1700 2    60   Input ~ 0
+Text GLabel 9650 1150 2    60   Input ~ 0
 RNGb
 Wire Wire Line
-	9850 1400 9750 1400
+	9650 850  9550 850 
 Wire Wire Line
-	9750 1500 9850 1500
+	9550 950  9650 950 
 Wire Wire Line
-	9850 1600 9750 1600
+	9650 1050 9550 1050
 Wire Wire Line
-	9750 1700 9850 1700
+	9550 1150 9650 1150
 Wire Wire Line
-	9850 1800 9750 1800
+	9650 1250 9550 1250
 Wire Wire Line
-	9750 1900 9850 1900
+	9550 1350 9650 1350
 Wire Wire Line
-	9850 2000 9750 2000
+	9650 1450 9550 1450
 Wire Wire Line
-	9850 2200 9750 2200
+	9650 1650 9550 1650
 Wire Wire Line
-	9750 2300 9850 2300
+	9550 1750 9650 1750
 Wire Wire Line
-	9850 2400 9750 2400
+	9650 1850 9550 1850
 Wire Wire Line
-	9750 2700 9850 2700
+	9550 2150 9650 2150
 Wire Wire Line
-	9850 2800 9750 2800
+	9650 2250 9550 2250
 Wire Wire Line
-	8400 1700 8300 1700
+	8200 1150 8100 1150
 Wire Wire Line
-	8300 1800 8400 1800
+	8100 1250 8200 1250
 Wire Wire Line
-	8400 1900 8300 1900
+	8200 1350 8100 1350
 Wire Wire Line
-	8300 2000 8400 2000
+	8100 1450 8200 1450
 Wire Wire Line
-	8400 2100 8300 2100
+	8200 1550 8100 1550
 Wire Wire Line
-	8300 2200 8400 2200
-Text GLabel 8300 1400 0    60   Output ~ 0
+	8100 1650 8200 1650
+Text GLabel 8100 850  0    60   Output ~ 0
 LCD_SPI_DC
-Text GLabel 9850 2600 2    60   Output ~ 0
+Text GLabel 9650 2050 2    60   Output ~ 0
 LCD_SPI_RES
-Text GLabel 8300 3000 0    60   Output ~ 0
+Text GLabel 8100 2450 0    60   Output ~ 0
 LCD_SPI_SCL
-Text GLabel 9850 3000 2    60   Output ~ 0
+Text GLabel 9650 2450 2    60   Output ~ 0
 LCD_SPI_SDA
-Text GLabel 9850 2900 2    60   Output ~ 0
+Text GLabel 9650 2350 2    60   Output ~ 0
 LCD_SPI_CS
 Wire Wire Line
-	9750 2900 9850 2900
+	9550 2350 9650 2350
 Wire Wire Line
-	9850 3000 9750 3000
+	9650 2450 9550 2450
 Wire Wire Line
-	8400 3000 8300 3000
+	8200 2450 8100 2450
 Wire Wire Line
-	8300 1400 8400 1400
+	8100 850  8200 850 
 Wire Wire Line
-	9750 2600 9850 2600
-Text GLabel 9050 1100 0    60   Input ~ 0
+	9550 2050 9650 2050
+Text GLabel 9000 2600 0    60   Input ~ 0
 PIND5_LED
 Wire Wire Line
-	9050 1100 9200 1100
-Text Notes 8050 3350 0    60   ~ 0
+	9000 2600 9150 2600
+Text Notes 7850 2900 0    60   ~ 0
 Original Fluke 8050a LCD Hack\nhttp://vondervotteimittiss.com/belfry/?p=180
-Text Notes 7850 6550 0    60   ~ 0
+Text Notes 5550 6500 0    60   ~ 0
 Fluke 8050a LCD with New INT handler\nhttps://github.com/yhfudev/smartshow-fluke8050a.git
-Text Notes 5050 3500 0    60   ~ 0
+Text Notes 4850 2950 0    60   ~ 0
 ESP8266 UART Bridge (UART Swap mode)\nhttps://github.com/jeelabs/esp-link.git
 Text Notes 600  7900 0    60   ~ 0
 ATMega328p Headless\nhttps://github.com/yhfudev/smartshow-fluke8050a.git
@@ -684,7 +681,7 @@ NoConn ~ 3200 1900
 NoConn ~ 1200 1800
 NoConn ~ 1200 1500
 Wire Wire Line
-	9700 5250 9800 5250
+	7400 5150 7500 5150
 Text GLabel 1500 6700 0    60   Input ~ 0
 BP
 NoConn ~ 3600 5200
@@ -762,29 +759,29 @@ Wire Wire Line
 $Comp
 L +5V #PWR?
 U 1 1 5BCA7727
-P 8100 2500
-F 0 "#PWR?" H 8100 2350 50  0001 C CNN
-F 1 "+5V" H 8100 2640 50  0000 C CNN
-F 2 "" H 8100 2500 50  0001 C CNN
-F 3 "" H 8100 2500 50  0001 C CNN
-	1    8100 2500
+P 7900 1950
+F 0 "#PWR?" H 7900 1800 50  0001 C CNN
+F 1 "+5V" H 7900 2090 50  0000 C CNN
+F 2 "" H 7900 1950 50  0001 C CNN
+F 3 "" H 7900 1950 50  0001 C CNN
+	1    7900 1950
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	8100 2500 8400 2500
+	7900 1950 8200 1950
 $Comp
 L +5V #PWR?
 U 1 1 5BCA7772
-P 8050 5650
-F 0 "#PWR?" H 8050 5500 50  0001 C CNN
-F 1 "+5V" H 8050 5790 50  0000 C CNN
-F 2 "" H 8050 5650 50  0001 C CNN
-F 3 "" H 8050 5650 50  0001 C CNN
-	1    8050 5650
+P 5750 5550
+F 0 "#PWR?" H 5750 5400 50  0001 C CNN
+F 1 "+5V" H 5750 5690 50  0000 C CNN
+F 2 "" H 5750 5550 50  0001 C CNN
+F 3 "" H 5750 5550 50  0001 C CNN
+	1    5750 5550
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	8050 5650 8350 5650
+	5750 5550 6050 5550
 $Comp
 L GND #PWR?
 U 1 1 5BCA7912
@@ -797,9 +794,9 @@ F 3 "" H 700 1650 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	5150 2550 5150 2650
+	4950 2000 4950 2100
 Wire Wire Line
-	5150 2650 5400 2650
+	4950 2100 5200 2100
 Text GLabel 3200 5950 2    60   Input ~ 0
 RNGc
 Wire Wire Line
@@ -811,151 +808,149 @@ OLED_I2C_SCL
 Text GLabel 1500 6250 0    60   BiDi ~ 0
 OLED_I2C_SDA
 NoConn ~ 750  6400
-Text GLabel 6400 2650 2    60   Output ~ 0
+Text GLabel 6200 2100 2    60   Output ~ 0
 ESP_RESET
 Text GLabel 1500 7150 0    60   Input ~ 0
 ESP_RESET
 Wire Wire Line
 	1500 7150 1650 7150
-Text GLabel 6400 2550 2    60   Output ~ 0
+Text GLabel 6200 2000 2    60   Output ~ 0
 ESP_ISP_FLASH
 Wire Wire Line
-	6300 2550 6400 2550
+	6100 2000 6200 2000
 Wire Wire Line
-	6400 2650 6300 2650
-Text GLabel 8250 5750 0    60   Input ~ 0
+	6200 2100 6100 2100
+Text GLabel 5950 5650 0    60   Input ~ 0
 ESP_RESET
 Wire Wire Line
-	8250 5750 8350 5750
+	5950 5650 6050 5650
 $Comp
 L LM393 U?
 U 1 1 5BD66041
-P 5400 4450
-F 0 "U?" H 5550 4600 50  0000 C CNN
-F 1 "LM393" H 5650 4300 50  0000 C CNN
-F 2 "" H 5400 4450 50  0001 C CNN
-F 3 "" H 5400 4450 50  0001 C CNN
-	1    5400 4450
+P 9500 3700
+F 0 "U?" H 9650 3850 50  0000 C CNN
+F 1 "LM393" H 9750 3550 50  0000 C CNN
+F 2 "" H 9500 3700 50  0001 C CNN
+F 3 "" H 9500 3700 50  0001 C CNN
+	1    9500 3700
 	1    0    0    -1  
 $EndComp
 $Comp
 L R R?
 U 1 1 5BD66043
-P 4850 4600
-F 0 "R?" V 4930 4600 50  0000 C CNN
-F 1 "200k" V 4850 4600 50  0000 C CNN
-F 2 "" V 4780 4600 50  0001 C CNN
-F 3 "" H 4850 4600 50  0001 C CNN
-	1    4850 4600
+P 8950 3850
+F 0 "R?" V 9030 3850 50  0000 C CNN
+F 1 "200k" V 8950 3850 50  0000 C CNN
+F 2 "" V 8880 3850 50  0001 C CNN
+F 3 "" H 8950 3850 50  0001 C CNN
+	1    8950 3850
 	1    0    0    -1  
 $EndComp
 $Comp
 L R R?
 U 1 1 5BD66044
-P 4850 5000
-F 0 "R?" V 4930 5000 50  0000 C CNN
-F 1 "50k" V 4850 5000 50  0000 C CNN
-F 2 "" V 4780 5000 50  0001 C CNN
-F 3 "" H 4850 5000 50  0001 C CNN
-	1    4850 5000
+P 8950 4250
+F 0 "R?" V 9030 4250 50  0000 C CNN
+F 1 "50k" V 8950 4250 50  0000 C CNN
+F 2 "" V 8880 4250 50  0001 C CNN
+F 3 "" H 8950 4250 50  0001 C CNN
+	1    8950 4250
 	1    0    0    -1  
 $EndComp
 $Comp
 L GND #PWR?
 U 1 1 5BD66045
-P 4850 5250
-F 0 "#PWR?" H 4850 5000 50  0001 C CNN
-F 1 "GND" H 4850 5100 50  0000 C CNN
-F 2 "" H 4850 5250 50  0001 C CNN
-F 3 "" H 4850 5250 50  0001 C CNN
-	1    4850 5250
+P 8950 4500
+F 0 "#PWR?" H 8950 4250 50  0001 C CNN
+F 1 "GND" H 8950 4350 50  0000 C CNN
+F 2 "" H 8950 4500 50  0001 C CNN
+F 3 "" H 8950 4500 50  0001 C CNN
+	1    8950 4500
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	4850 4750 4850 4850
+	8950 4000 8950 4100
 Wire Wire Line
-	5100 4550 5050 4550
+	9200 3800 9150 3800
 Wire Wire Line
-	5050 4550 5050 4800
+	9150 3800 9150 4050
 Wire Wire Line
-	5050 4800 4850 4800
-Connection ~ 4850 4800
+	9150 4050 8950 4050
+Connection ~ 8950 4050
 Wire Wire Line
-	4850 5150 4850 5250
+	8950 4400 8950 4500
 Wire Wire Line
-	5300 4750 5300 5200
+	9400 4000 9400 4450
 Wire Wire Line
-	5300 5200 4850 5200
-Connection ~ 4850 5200
+	9400 4450 8950 4450
+Connection ~ 8950 4450
 $Comp
 L +5V #PWR?
 U 1 1 5BD66046
-P 5300 4000
-F 0 "#PWR?" H 5300 3850 50  0001 C CNN
-F 1 "+5V" H 5300 4140 50  0000 C CNN
-F 2 "" H 5300 4000 50  0001 C CNN
-F 3 "" H 5300 4000 50  0001 C CNN
-	1    5300 4000
+P 9400 3250
+F 0 "#PWR?" H 9400 3100 50  0001 C CNN
+F 1 "+5V" H 9400 3390 50  0000 C CNN
+F 2 "" H 9400 3250 50  0001 C CNN
+F 3 "" H 9400 3250 50  0001 C CNN
+	1    9400 3250
 	1    0    0    -1  
 $EndComp
-Text Notes 4650 4850 0    60   ~ 0
+Text Notes 8750 4100 0    60   ~ 0
 1v
-Text GLabel 4800 4350 0    60   Input ~ 0
+Text GLabel 8900 3600 0    60   Input ~ 0
 ESP_TX
-Text Notes 4400 4300 0    60   ~ 0
+Text Notes 8500 3550 0    60   ~ 0
 MAX 3v3
-Text GLabel 5850 4450 2    60   Output ~ 0
+Text GLabel 9950 3700 2    60   Output ~ 0
 ESP_TX_5V
 Wire Wire Line
-	5700 4450 5850 4450
+	9800 3700 9950 3700
 $Comp
 L R R?
 U 1 1 5BD6604B
-P 5750 4250
-F 0 "R?" V 5830 4250 50  0000 C CNN
-F 1 "20k" V 5750 4250 50  0000 C CNN
-F 2 "" V 5680 4250 50  0001 C CNN
-F 3 "" H 5750 4250 50  0001 C CNN
-	1    5750 4250
+P 9850 3500
+F 0 "R?" V 9930 3500 50  0000 C CNN
+F 1 "20k" V 9850 3500 50  0000 C CNN
+F 2 "" V 9780 3500 50  0001 C CNN
+F 3 "" H 9850 3500 50  0001 C CNN
+	1    9850 3500
 	-1   0    0    1   
 $EndComp
 Wire Wire Line
-	5750 4400 5750 4450
-Connection ~ 5750 4450
+	9850 3650 9850 3700
+Connection ~ 9850 3700
 Wire Wire Line
-	5300 4000 5300 4150
+	9400 3250 9400 3400
 Wire Wire Line
-	5750 4050 5750 4100
+	9850 3300 9850 3350
 Wire Wire Line
-	4850 4050 5750 4050
-Connection ~ 5300 4050
+	8950 3300 9850 3300
+Connection ~ 9400 3300
 Wire Wire Line
-	4850 4450 4850 4050
-Text Notes 5950 4350 0    60   ~ 0
+	8950 3700 8950 3300
+Text Notes 10050 3600 0    60   ~ 0
 Out < 5v
 Wire Wire Line
-	4800 4350 5100 4350
+	8900 3600 9200 3600
 $Comp
 L LM393 U?
 U 2 1 5BD64FB0
-P 6100 5050
-F 0 "U?" H 6250 5200 50  0000 C CNN
-F 1 "LM393" H 6350 4900 50  0000 C CNN
-F 2 "" H 6100 5050 50  0001 C CNN
-F 3 "" H 6100 5050 50  0001 C CNN
-	2    6100 5050
+P 10000 4300
+F 0 "U?" H 10150 4450 50  0000 C CNN
+F 1 "LM393" H 10250 4150 50  0000 C CNN
+F 2 "" H 10000 4300 50  0001 C CNN
+F 3 "" H 10000 4300 50  0001 C CNN
+	2    10000 4300
 	1    0    0    -1  
 $EndComp
-Text GLabel 3200 7150 2    60   Input ~ 0
+Text GLabel 3200 7150 2    60   Output ~ 0
 ESP_RX_5V
-Text GLabel 6600 4300 3    60   Input ~ 0
+Text GLabel 7500 3600 0    60   Input ~ 0
 ESP_RX_5V
 Wire Wire Line
-	6700 4250 6600 4250
+	7600 3600 7500 3600
 Wire Wire Line
-	6600 4250 6600 4300
-Wire Wire Line
-	9800 5950 9700 5950
+	7500 5850 7400 5850
 $Comp
 L C_Small C?
 U 1 1 5BD74DF6
@@ -992,9 +987,11 @@ Wire Wire Line
 Wire Wire Line
 	1750 750  1750 800 
 $Comp
-L CONN_01X12 J?
+L Conn_01x12 J?
 U 1 1 5BD761D4
 P 5950 7300
+AR Path="/5BD761D4" Ref="J?"  Part="1" 
+AR Path="/5BD37954/5BD761D4" Ref="J?"  Part="1" 
 F 0 "J?" H 5950 7950 50  0000 C CNN
 F 1 "CONN_01X12" V 6050 7300 50  0000 C CNN
 F 2 "" H 5950 7300 50  0001 C CNN
@@ -1002,76 +999,78 @@ F 3 "" H 5950 7300 50  0001 C CNN
 	1    5950 7300
 	1    0    0    -1  
 $EndComp
-Text GLabel 5650 6950 0    60   Input ~ 0
+Text GLabel 5650 7000 0    60   Input ~ 0
 GND
-Text GLabel 5650 6850 0    60   Input ~ 0
+Text GLabel 5650 6900 0    60   Input ~ 0
 ESP_TX
-Text GLabel 5650 6750 0    60   Input ~ 0
+Text GLabel 5650 6800 0    60   Input ~ 0
 ESP_RX
-Text GLabel 5650 7150 0    60   Input ~ 0
+Text GLabel 5650 7200 0    60   Input ~ 0
 +5V
-Text GLabel 5650 7250 0    60   Input ~ 0
+Text GLabel 5650 7300 0    60   Input ~ 0
 +5V
-Text GLabel 5650 7350 0    60   Input ~ 0
+Text GLabel 5650 7400 0    60   Input ~ 0
 LCD_SPI_RST
-Text GLabel 5650 7450 0    60   Input ~ 0
+Text GLabel 5650 7500 0    60   Input ~ 0
 LCD_SPI_SDA
-Text GLabel 5650 7550 0    60   Input ~ 0
+Text GLabel 5650 7600 0    60   Input ~ 0
 LCD_SPI_SCL
-Text GLabel 5650 7650 0    60   Input ~ 0
+Text GLabel 5650 7700 0    60   Input ~ 0
 LCD_SPI_CS
-Text GLabel 5650 7750 0    60   Input ~ 0
+Text GLabel 5650 7800 0    60   Input ~ 0
 LCD_SPI_DC
-Text GLabel 5650 7850 0    60   Input ~ 0
+Text GLabel 5650 7900 0    60   Input ~ 0
 GND
 Wire Wire Line
-	5650 6750 5750 6750
+	5650 6800 5750 6800
 Wire Wire Line
-	5750 6850 5650 6850
+	5750 6900 5650 6900
 Wire Wire Line
-	5650 6950 5750 6950
+	5650 7000 5750 7000
 Wire Wire Line
-	5750 7050 5650 7050
+	5750 7100 5650 7100
 Wire Wire Line
-	5750 7250 5650 7250
+	5750 7300 5650 7300
 Wire Wire Line
-	5750 7450 5650 7450
+	5750 7500 5650 7500
 Wire Wire Line
-	5650 7550 5750 7550
+	5650 7600 5750 7600
 Wire Wire Line
-	5750 7650 5650 7650
+	5750 7700 5650 7700
 Wire Wire Line
-	5650 7750 5750 7750
+	5650 7800 5750 7800
 Wire Wire Line
-	5650 7850 5750 7850
+	5650 7900 5750 7900
 Wire Wire Line
-	5750 7350 5650 7350
-Text GLabel 5650 7050 0    60   Input ~ 0
+	5750 7400 5650 7400
+Text GLabel 5650 7100 0    60   Input ~ 0
 ESP_RESET
 Wire Wire Line
-	5650 7150 5750 7150
+	5650 7200 5750 7200
 Wire Notes Line
-	5000 6950 4950 6950
-Text Notes 4350 7000 0    60   ~ 0
+	5000 7000 4950 7000
+Text Notes 4350 7050 0    60   ~ 0
 To ESP\n3v3 tolerent
 Wire Notes Line
-	5050 6700 5000 6700
+	5050 6750 5000 6750
 Wire Notes Line
-	5000 6700 5000 7200
+	5000 6750 5000 7250
 Wire Notes Line
-	5000 7200 5050 7200
+	5000 7250 5050 7250
 Text Notes 2350 4200 0    60   Italic 12
-connect to -5V of Fluke8050a!
+connected to -5V of Fluke8050a!
 Text Notes 2300 600  0    60   Italic 12
-connect to GND of Fluke8050a!
-Text Notes 10100 5600 0    63   ~ 0
+connected to GND of Fluke8050a!
+Text Notes 7800 5500 0    63   ~ 0
 PD6 - D12\nPB7 - D11\nPB6 - D10\nPB5 - D9\nPB4 - D8\nPE6 - D7\nPD7 - D6\nPC6 - D5\nPD4 - D4\nPD0 - D3\nPD1 - D2
-Text Notes 10450 6200 0    63   ~ 0
+Text Notes 8150 6100 0    63   ~ 0
 PD2 - D0 - RX\nPD3 - D1 - TX\nPB0 - D17 - SS - RX_LED\nPB2 - D16 - MOSI
-Text Notes 7600 6200 2    60   ~ 0
+Text Notes 5300 6100 2    60   ~ 0
 MISO - D14 - PB3\nSCK - D15 - PB1
-Text Notes 7550 5400 0    63   ~ 0
+Text Notes 5250 5300 0    63   ~ 0
 A0 - PF7\nA1 - PF6\nA2 - PF5\nA3 - PF4\nA4 - PF1\nA5 - PF0
-Text Notes 7700 4500 0    63   ~ 0
+Text Notes 5400 4400 0    63   ~ 0
 D13 - PC7
+Wire Wire Line
+	6850 6200 7000 6200
 $EndSCHEMATC
